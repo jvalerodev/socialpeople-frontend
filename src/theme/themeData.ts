@@ -1,8 +1,8 @@
-import { Color } from 'types/typings';
-import { ThemeOptions, PaletteMode } from '@mui/material';
+import { Colors, ThemeOptions } from 'types/typings';
+import { PaletteMode } from '@mui/material';
 
 // Color design tokens
-export const colorTokens: Color = {
+export const colorTokens: Colors = {
   grey: {
     0: '#FFFFFF',
     10: '#F6F6F6',
@@ -53,7 +53,7 @@ export const themeSettings = (mode: PaletteMode): ThemeOptions => ({
           },
           background: {
             default: colorTokens.grey[900],
-            paper: colorTokens.grey[800]
+            alt: colorTokens.grey[800]
           }
         }
       : {
@@ -72,7 +72,7 @@ export const themeSettings = (mode: PaletteMode): ThemeOptions => ({
           },
           background: {
             default: colorTokens.grey[10],
-            paper: colorTokens.grey[0]
+            alt: colorTokens.grey[0]
           }
         })
   },
