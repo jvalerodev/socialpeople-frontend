@@ -39,3 +39,4 @@ export type Post = {
 };
 
 export * from './appState';
+export * from './theme';

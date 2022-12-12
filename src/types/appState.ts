@@ -1,7 +1,7 @@
 import { User, Post, Friends } from './typings';
 
 export type AppState = {
-  mode: string;
+  mode: 'dark' | 'light';
   user: User | null;
   token: string | null;
   posts: Post[];

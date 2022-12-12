@@ -2,16 +2,19 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from 'pages/home';
 import Login from 'pages/login';
 import Profile from 'pages/profile';
+import Theme from 'theme';
 
 const App = () => {
   return (
     <div className="app">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/profile/:userId" element={<Profile />} />
-        </Routes>
+        <Theme>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/profile/:userId" element={<Profile />} />
+          </Routes>
+        </Theme>
       </BrowserRouter>
     </div>
   );
