@@ -1,4 +1,4 @@
-import { RegisterSchema, LoginSchema } from 'types/register';
+import { RegisterSchema, LoginSchema } from 'types/typings';
 
 export const initialValuesRegister: RegisterSchema = {
   firstname: '',

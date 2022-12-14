@@ -1,6 +1,6 @@
 import { isAxiosError } from 'axios';
 import axiosClient from 'config/axios/axios';
-import { RegisterRes } from 'types/typings';
+import { LoginRes, LoginSchema, RegisterRes } from 'types/typings';
 
 export const UserService = {
   register: async (formData: FormData) => {
@@ -14,6 +14,18 @@ export const UserService = {
       if (isAxiosError(error)) {
         console.error(error.response?.data.msg);
       }
+    }
+  },
+
+  login: async (credentials: LoginSchema) => {
+    try {
+      const { data } = await axiosClient.post<LoginRes>(
+        '/api/auth/login',
+        credentials
+      );
+      return data;
+    } catch (error) {
+      console.log(error);
     }
   }
 };

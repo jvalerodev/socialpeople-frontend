@@ -10,16 +10,7 @@ export type RegisterSchema = {
   picture?: File;
 };
 
-export type LoginSchema = {
-  email: string;
-  password: string;
-};
-
-export type RegisterRes = User & {
-  ok: boolean;
-};
-
-export type LoginRes = User & {
-  token: string;
+export type RegisterRes = {
+  user: User;
   ok: boolean;
 };

@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FormikHelpers } from 'formik';
-import { setMode, setLogout } from 'state';
+import { setMode, setLogout, setLogin } from 'state';
 import { UserService } from 'services';
-import { AppState, RegisterSchema } from 'types/typings';
+import { AppState, LoginSchema, RegisterSchema } from 'types/typings';
 
 const useApp = () => {
   const dispatch = useDispatch();
@@ -39,7 +39,25 @@ const useApp = () => {
     }
   };
 
-  return { user, handleMode, logout, register };
+  const login = async (
+    values: LoginSchema,
+    actions: FormikHelpers<RegisterSchema>
+  ) => {
+    const loggedUser = await UserService.login(values);
+
+    if (loggedUser) {
+      dispatch(
+        setLogin({
+          user: loggedUser.user,
+          token: loggedUser.token
+        })
+      );
+      actions.resetForm();
+      navigate('/home');
+    }
+  };
+
+  return { user, handleMode, logout, register, login };
 };
 
 export default useApp;
