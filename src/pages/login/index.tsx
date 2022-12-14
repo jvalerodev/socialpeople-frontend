@@ -1,4 +1,5 @@
 import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
+import LoginForm from 'components/forms/Login';
 import { ThemeOptions } from 'types/typings';
 
 const Login = () => {
@@ -33,6 +34,8 @@ const Login = () => {
         >
           Welcome to SocialPeople, the Social media for Sociopaths!
         </Typography>
+
+        <LoginForm />
       </Box>
     </Box>
   );

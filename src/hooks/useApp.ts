@@ -41,7 +41,7 @@ const useApp = () => {
 
   const login = async (
     values: LoginSchema,
-    actions: FormikHelpers<RegisterSchema>
+    actions: FormikHelpers<LoginSchema>
   ) => {
     const loggedUser = await UserService.login(values);
 

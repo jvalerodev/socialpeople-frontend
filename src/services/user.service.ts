@@ -25,7 +25,9 @@ export const UserService = {
       );
       return data;
     } catch (error) {
-      console.log(error);
+      if (isAxiosError(error)) {
+        console.error(error.response?.data.msg);
+      }
     }
   }
 };
