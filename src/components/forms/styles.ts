@@ -15,9 +15,7 @@ export const FormContainer = styled(Box, {
   '& > div': { gridColumn: !isMobileScreen ? '' : 'span 4' }
 }));
 
-export const SubmitButton = styled(Button, {
-  shouldForwardProp: (prop) => prop !== 'palette'
-})(({ palette }: Palette) => ({
+export const SubmitButton = styled(Button)(({ palette }: Palette) => ({
   margin: '2rem 0',
   padding: '1rem',
   backgroundColor: palette.primary.main,
@@ -25,9 +23,7 @@ export const SubmitButton = styled(Button, {
   '&:hover': { color: palette.primary.main }
 }));
 
-export const BottomText = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'palette'
-})(({ palette }: Palette) => ({
+export const BottomText = styled(Typography)(({ palette }: Palette) => ({
   color: palette.primary.main,
   '&:hover': {
     cursor: 'pointer',
@@ -35,9 +31,7 @@ export const BottomText = styled(Typography, {
   }
 }));
 
-export const DropContainer = styled(Box, {
-  shouldForwardProp: (prop) => prop !== 'palette'
-})(({ palette }: Palette) => ({
+export const DropContainer = styled(Box)(({ palette }: Palette) => ({
   border: `2px dashed ${palette.primary.main}`,
   padding: '1rem',
   '&:hover': { cursor: 'pointer' }

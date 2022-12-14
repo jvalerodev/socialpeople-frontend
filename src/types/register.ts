@@ -1,3 +1,5 @@
+import { User } from './typings';
+
 export type RegisterSchema = {
   firstname: string;
   lastname: string;
@@ -11,4 +13,13 @@ export type RegisterSchema = {
 export type LoginSchema = {
   email: string;
   password: string;
+};
+
+export type RegisterRes = User & {
+  ok: boolean;
+};
+
+export type LoginRes = User & {
+  token: string;
+  ok: boolean;
 };

@@ -14,7 +14,7 @@ const RegisterForm = () => {
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
-  const { handleFormSubmit } = useApp();
+  const { register } = useApp();
 
   const { palette } = useTheme<ThemeOptions>();
   const isMobileScreen = useMediaQuery('(max-width: 600px)');
@@ -22,8 +22,8 @@ const RegisterForm = () => {
   const formik = useFormik<RegisterSchema>({
     initialValues: initialValuesRegister,
     validationSchema: registerSchema,
-    onSubmit: (values, actions) => {
-      handleFormSubmit();
+    onSubmit: async (values, actions) => {
+      await register(values, actions);
     }
   });
 
