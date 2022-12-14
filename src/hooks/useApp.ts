@@ -14,7 +14,9 @@ const useApp = () => {
     dispatch(setLogout());
   };
 
-  return { user, handleMode, logout };
+  const handleFormSubmit = async () => {};
+
+  return { user, handleMode, logout, handleFormSubmit };
 };
 
 export default useApp;

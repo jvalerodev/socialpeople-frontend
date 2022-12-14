@@ -79,3 +79,25 @@ export type ThemeOptions = {
     };
   };
 };
+
+export type Palette = {
+  palette: {
+    primary: {
+      dark: string;
+      main: string;
+      light: string;
+    };
+    neutral: {
+      dark: string;
+      main: string;
+      mediumMain: string;
+      medium: string;
+      light: string;
+    };
+    background: {
+      default: string;
+      alt: string;
+    };
+    mode: PaletteMode;
+  };
+};

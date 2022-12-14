@@ -15,7 +15,7 @@ const Navbar = () => {
   const alt = theme.palette.background.alt;
 
   return (
-    <FlexBetween padding="1rem 6%" bgcolor={alt}>
+    <FlexBetween p="1rem 6%" bgcolor={alt}>
       {/* SIDE LEFT */}
       <Logo theme={theme} />
 

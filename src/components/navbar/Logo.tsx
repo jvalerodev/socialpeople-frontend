@@ -35,7 +35,7 @@ const Logo = ({ theme }: Props) => {
           }
         }}
       >
-        Social People
+        SocialPeople
       </Typography>
 
       {!isMobileScreen && (
@@ -43,7 +43,7 @@ const Logo = ({ theme }: Props) => {
           bgcolor={neutralLight}
           borderRadius="9px"
           gap="3rem"
-          padding="0.1rem 1.5rem"
+          p="0.1rem 1.5rem"
         >
           <InputBase placeholder="Search..." />
 

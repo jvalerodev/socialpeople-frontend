@@ -1,7 +1,8 @@
 import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
+import RegisterForm from 'components/forms/Register';
 import { ThemeOptions } from 'types/typings';
 
-const Login = () => {
+const Register = () => {
   const theme = useTheme<ThemeOptions>();
   const isMobileScreen = useMediaQuery('(max-width: 1000px)');
 
@@ -31,11 +32,13 @@ const Login = () => {
           mb="1.5rem"
           textAlign="center"
         >
-          Welcome to SocialPeople, the Social media for Sociopaths!
+          Create an account on SocialPeople!
         </Typography>
+
+        <RegisterForm />
       </Box>
     </Box>
   );
 };
 
-export default Login;
+export default Register;
