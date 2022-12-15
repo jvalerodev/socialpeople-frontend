@@ -6,8 +6,10 @@ import { UserService } from 'services';
 import { AppState, LoginSchema, RegisterSchema } from 'types/typings';
 
 const useApp = () => {
-  const dispatch = useDispatch();
   const user = useSelector((state: AppState) => state.user);
+  const token = useSelector((state: AppState) => state.token);
+
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleMode = () => {
@@ -57,7 +59,7 @@ const useApp = () => {
     }
   };
 
-  return { user, handleMode, logout, register, login };
+  return { user, token, handleMode, logout, register, login };
 };
 
 export default useApp;
