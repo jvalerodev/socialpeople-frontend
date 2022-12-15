@@ -1,8 +1,8 @@
-import useApp from 'hooks/useApp';
+import { useAuth } from 'hooks';
 import { Navigate, Outlet } from 'react-router-dom';
 
 const RequireAuth = () => {
-  const { user, token } = useApp();
+  const { user, token } = useAuth();
 
   return user && token ? <Outlet /> : <Navigate to="/" />;
 };

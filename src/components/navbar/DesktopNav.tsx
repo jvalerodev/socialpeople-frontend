@@ -17,8 +17,8 @@ import {
   Menu
 } from '@mui/icons-material';
 import FlexBetween from 'components/styles/FlexBetween';
+import { useApp, useAuth } from 'hooks';
 import { InputSelect } from './styles';
-import useApp from 'hooks/useApp';
 import { ThemeOptions } from 'types/typings';
 
 interface Props {
@@ -27,7 +27,9 @@ interface Props {
 }
 
 const DesktopNav = ({ isMobileMenuToggled, setIsMobileMenuToggled }: Props) => {
-  const { user, handleMode, logout } = useApp();
+  const { user, logout } = useAuth();
+  const { handleMode } = useApp();
+
   const { palette } = useTheme<ThemeOptions>();
 
   const isMobileScreen = useMediaQuery('(max-width: 1000px)');

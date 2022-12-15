@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { registerSchema } from 'config/yup/schemas';
 import { initialValuesRegister } from 'config/yup/initialValues';
-import useApp from 'hooks/useApp';
+import { useAuth } from 'hooks';
 import Message from 'components/alert';
 import Dropzone from './Dropzone';
 import { BottomText, FormContainer, SubmitButton } from './styles';
@@ -14,7 +14,7 @@ const RegisterForm = () => {
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
-  const { register } = useApp();
+  const { register } = useAuth();
 
   const { palette } = useTheme<ThemeOptions>();
   const isMobileScreen = useMediaQuery('(max-width: 600px)');

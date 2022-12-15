@@ -3,13 +3,13 @@ import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { loginSchema } from 'config/yup/schemas';
 import { initialValuesLogin } from 'config/yup/initialValues';
-import useApp from 'hooks/useApp';
+import { useAuth } from 'hooks';
 import { BottomText, FormContainer, SubmitButton } from './styles';
 import { LoginSchema, ThemeOptions } from 'types/typings';
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const { login } = useApp();
+  const { login } = useAuth();
 
   const { palette } = useTheme<ThemeOptions>();
   const isMobileScreen = useMediaQuery('(max-width: 600px)');
