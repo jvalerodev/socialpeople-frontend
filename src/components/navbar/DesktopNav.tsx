@@ -16,7 +16,7 @@ import {
   Help,
   Menu
 } from '@mui/icons-material';
-import FlexBetween from 'components/styles/FlexBetween';
+import { FlexBetween } from 'components/styles';
 import { useApp, useAuth } from 'hooks';
 import { InputSelect } from './styles';
 import { ThemeOptions } from 'types/typings';

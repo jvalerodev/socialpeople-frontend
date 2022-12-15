@@ -4,7 +4,7 @@ import { FormikProps } from 'formik';
 import { RegisterSchema } from 'types/register';
 import { Typography, useTheme } from '@mui/material';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import FlexBetween from 'components/styles/FlexBetween';
+import { FlexBetween } from 'components/styles';
 import { DropContainer } from './styles';
 import { ThemeOptions } from 'types/typings';
 

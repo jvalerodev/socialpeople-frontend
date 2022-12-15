@@ -7,7 +7,7 @@ import {
   useTheme
 } from '@mui/material';
 import { Search } from '@mui/icons-material';
-import FlexBetween from 'components/styles/FlexBetween';
+import { FlexBetween } from 'components/styles';
 import { ThemeOptions } from 'types/typings';
 
 const Logo = () => {

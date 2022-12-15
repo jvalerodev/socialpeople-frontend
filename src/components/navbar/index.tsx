@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTheme, useMediaQuery } from '@mui/material';
-import FlexBetween from 'components/styles/FlexBetween';
+import { FlexBetween } from 'components/styles';
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';
 import Logo from './Logo';
