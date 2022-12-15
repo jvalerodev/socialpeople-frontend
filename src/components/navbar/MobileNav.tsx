@@ -4,9 +4,9 @@ import {
   IconButton,
   InputBase,
   Typography,
-  Select,
   MenuItem,
-  FormControl
+  FormControl,
+  useTheme
 } from '@mui/material';
 import {
   Message,
@@ -17,25 +17,21 @@ import {
   Close
 } from '@mui/icons-material';
 import FlexBetween from 'components/styles/FlexBetween';
+import { InputSelect } from './styles';
 import useApp from 'hooks/useApp';
 import { ThemeOptions } from 'types/typings';
 
 interface Props {
-  theme: ThemeOptions;
   isMobileMenuToggled: boolean;
   setIsMobileMenuToggled: Dispatch<SetStateAction<boolean>>;
 }
 
-const MobileNav = ({
-  theme,
-  isMobileMenuToggled,
-  setIsMobileMenuToggled
-}: Props) => {
+const MobileNav = ({ isMobileMenuToggled, setIsMobileMenuToggled }: Props) => {
   const { user, handleMode, logout } = useApp();
+  const { palette } = useTheme<ThemeOptions>();
 
-  const neutralLight = theme.palette.neutral.light;
-  const dark = theme.palette.neutral.dark;
-  const background = theme.palette.background.default;
+  const dark = palette.neutral.dark;
+  const background = palette.background.default;
 
   const fullName = `${user?.firstname} ${user?.lastname}`;
 
@@ -66,7 +62,7 @@ const MobileNav = ({
         gap="3rem"
       >
         <IconButton onClick={handleMode} sx={{ fontSize: '25px' }}>
-          {theme.palette.mode === 'dark' ? (
+          {palette.mode === 'dark' ? (
             <DarkMode sx={{ fontSize: '25px' }} />
           ) : (
             <LightMode sx={{ color: dark, fontSize: '25px' }} />
@@ -80,29 +76,13 @@ const MobileNav = ({
         <Help sx={{ fontSize: '25px' }} />
 
         <FormControl variant="standard" defaultValue={fullName}>
-          <Select
-            value={fullName}
-            sx={{
-              backgroundColor: neutralLight,
-              width: '150px',
-              borderRadius: '0.25rem',
-              p: '0.25rem 1rem',
-              '& .MuiSvgIcon-root': {
-                pr: '0.25rem',
-                width: '3rem'
-              },
-              '& .MuiSelect-select:focus': {
-                backgroundColor: neutralLight
-              }
-            }}
-            input={<InputBase />}
-          >
-            <MenuItem defaultValue={fullName}>
+          <InputSelect value={fullName} input={<InputBase />} palette={palette}>
+            <MenuItem value={fullName}>
               <Typography>{fullName}</Typography>
             </MenuItem>
 
             <MenuItem onClick={logout}>Logout</MenuItem>
-          </Select>
+          </InputSelect>
         </FormControl>
       </FlexBetween>
     </Box>

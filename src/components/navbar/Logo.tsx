@@ -3,18 +3,16 @@ import {
   IconButton,
   InputBase,
   Typography,
-  useMediaQuery
+  useMediaQuery,
+  useTheme
 } from '@mui/material';
 import { Search } from '@mui/icons-material';
 import FlexBetween from 'components/styles/FlexBetween';
 import { ThemeOptions } from 'types/typings';
 
-interface Props {
-  theme: ThemeOptions;
-}
-
-const Logo = ({ theme }: Props) => {
+const Logo = () => {
   const navigate = useNavigate();
+  const theme = useTheme<ThemeOptions>();
 
   const isMobileScreen = useMediaQuery('(max-width: 1000px)');
 

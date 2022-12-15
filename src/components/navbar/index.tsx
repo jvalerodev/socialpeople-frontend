@@ -17,11 +17,10 @@ const Navbar = () => {
   return (
     <FlexBetween p="1rem 6%" bgcolor={alt}>
       {/* SIDE LEFT */}
-      <Logo theme={theme} />
+      <Logo />
 
       {/* DESKTOP NAV */}
       <DesktopNav
-        theme={theme}
         isMobileMenuToggled={isMobileMenuToggled}
         setIsMobileMenuToggled={setIsMobileMenuToggled}
       />
@@ -29,7 +28,6 @@ const Navbar = () => {
       {/* MOBILE NAV */}
       {isMobileScreen && isMobileMenuToggled && (
         <MobileNav
-          theme={theme}
           isMobileMenuToggled={isMobileMenuToggled}
           setIsMobileMenuToggled={setIsMobileMenuToggled}
         />
