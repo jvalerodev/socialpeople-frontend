@@ -14,3 +14,14 @@ export type RegisterRes = {
   user: User;
   ok: boolean;
 };
+
+export type LoginSchema = {
+  email: string;
+  password: string;
+};
+
+export type LoginRes = {
+  user: User;
+  token: string;
+  ok: boolean;
+};

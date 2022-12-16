@@ -55,7 +55,14 @@ const useAuth = () => {
     }
   };
 
-  return { user, token, logout, register, login };
+  const getUser = async () => {
+    if (!user || !token) return;
+
+    const data = await UserService.getUser(user._id, token);
+    return data?.user;
+  };
+
+  return { user, token, logout, register, login, getUser };
 };
 
 export default useAuth;

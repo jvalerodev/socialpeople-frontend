@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { FormikProps } from 'formik';
-import { RegisterSchema } from 'types/register';
+import { RegisterSchema } from 'types/typings';
 import { Typography, useTheme } from '@mui/material';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { FlexBetween } from 'components/styles';

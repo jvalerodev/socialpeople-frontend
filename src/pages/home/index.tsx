@@ -1,10 +1,32 @@
-import { Box } from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
 import Navbar from 'components/navbar';
+import UserWidget from 'components/widgets/User';
 
 const Home = () => {
+  const isMobileScreen = useMediaQuery('(max-width: 1000px)');
+
   return (
     <Box>
       <Navbar />
+
+      <Box
+        width="100%"
+        p="2rem 6%"
+        display={!isMobileScreen ? 'flex' : 'block'}
+        gap="0.5rem"
+        justifyContent="space-between"
+      >
+        <Box flexBasis={!isMobileScreen ? '26%' : undefined}>
+          <UserWidget />
+        </Box>
+
+        <Box
+          flexBasis={!isMobileScreen ? '42%' : undefined}
+          mt={!isMobileScreen ? undefined : '2rem'}
+        ></Box>
+
+        {!isMobileScreen && <Box flexBasis="26%"></Box>}
+      </Box>
     </Box>
   );
 };
