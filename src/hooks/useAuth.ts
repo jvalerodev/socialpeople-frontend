@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FormikHelpers } from 'formik';
-import { setLogout, setLogin } from 'state';
+import { setLogout, setLogin, setPosts } from 'state';
 import { UserService } from 'services';
 import { AppState, LoginSchema, RegisterSchema } from 'types/typings';
 
@@ -58,11 +58,30 @@ const useAuth = () => {
   const getUser = async () => {
     if (!user || !token) return;
 
-    const data = await UserService.getUser(user._id, token);
-    return data?.user;
+    const userRes = await UserService.getUser(user._id, token);
+    return userRes;
   };
 
-  return { user, token, logout, register, login, getUser };
+  const handlePost = async (image: File | null, post: string) => {
+    if (!user || !token) return;
+
+    const formData = new FormData();
+    formData.append('userId', user._id);
+    formData.append('description', post);
+
+    if (image) {
+      formData.append('picture', image);
+      formData.append('picturePath', image.name);
+    }
+
+    const posts = await UserService.sendPost(formData, token);
+
+    if (posts) {
+      dispatch(setPosts({ posts }));
+    }
+  };
+
+  return { user, token, logout, register, login, getUser, handlePost };
 };
 
 export default useAuth;

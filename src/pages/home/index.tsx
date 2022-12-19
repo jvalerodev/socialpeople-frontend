@@ -1,5 +1,6 @@
 import { Box, useMediaQuery } from '@mui/material';
 import Navbar from 'components/navbar';
+import MyPostWidget from 'components/widgets/MyPost';
 import UserWidget from 'components/widgets/User';
 
 const Home = () => {
@@ -23,7 +24,9 @@ const Home = () => {
         <Box
           flexBasis={!isMobileScreen ? '42%' : undefined}
           mt={!isMobileScreen ? undefined : '2rem'}
-        ></Box>
+        >
+          <MyPostWidget />
+        </Box>
 
         {!isMobileScreen && <Box flexBasis="26%"></Box>}
       </Box>

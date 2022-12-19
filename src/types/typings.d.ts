@@ -41,3 +41,4 @@ export * from './appState';
 export * from './theme';
 export * from './auth';
 export * from './users';
+export * from './posts';

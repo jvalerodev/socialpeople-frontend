@@ -1,6 +1,12 @@
 import { isAxiosError } from 'axios';
 import axiosClient from 'config/axios/axios';
-import { GetUserRes, LoginRes, LoginSchema, RegisterRes } from 'types/typings';
+import {
+  GetUserRes,
+  LoginRes,
+  LoginSchema,
+  PostsRes,
+  RegisterRes
+} from 'types/typings';
 
 export const UserService = {
   register: async (formData: FormData) => {
@@ -39,9 +45,32 @@ export const UserService = {
           headers: { Authorization: `Bearer ${token}` }
         }
       );
-      return data;
+
+      const { user } = data;
+      return user;
+    } catch (error) {
+      if (isAxiosError(error)) {
+        console.error(error.response?.data.msg);
+      }
+    }
+  },
+
+  sendPost: async (formData: FormData, token: string) => {
+    console.log(token);
+    try {
+      const { data } = await axiosClient.post<PostsRes>(
+        '/api/posts/post',
+        formData,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      const { posts } = data;
+      return posts;
     } catch (error) {
       console.log(error);
+      if (isAxiosError(error)) {
+        console.error(error.response?.data.msg);
+      }
     }
   }
 };
