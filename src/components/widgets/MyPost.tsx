@@ -25,7 +25,7 @@ import UserImage from 'components/styles/UserImage';
 import { DropContainer } from 'components/forms/styles';
 import { ThemeOptions } from 'types/typings';
 
-const MyPost = () => {
+const MyPostWidget = () => {
   const [isImage, setIsImage] = useState(false);
   const [image, setImage] = useState<File | null>(null);
   const [post, setPost] = useState('');
@@ -178,4 +178,4 @@ const MyPost = () => {
   );
 };
 
-export default MyPost;
+export default MyPostWidget;
