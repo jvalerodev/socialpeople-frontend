@@ -65,9 +65,9 @@ const MobileNav = ({ isMobileMenuToggled, setIsMobileMenuToggled }: Props) => {
       >
         <IconButton onClick={handleMode} sx={{ fontSize: '25px' }}>
           {palette.mode === 'dark' ? (
-            <DarkMode sx={{ fontSize: '25px' }} />
+            <LightMode sx={{ fontSize: '25px' }} />
           ) : (
-            <LightMode sx={{ color: dark, fontSize: '25px' }} />
+            <DarkMode sx={{ color: dark, fontSize: '25px' }} />
           )}
         </IconButton>
 

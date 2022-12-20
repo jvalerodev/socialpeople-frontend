@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import { useAuth } from 'hooks';
 import { useEffect } from 'react';
 import PostWidget from './Post';
@@ -21,7 +22,7 @@ const PostsWidget = ({ userId, isProfile = false }: Props) => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <>
+    <Box mt={isProfile ? undefined : '2rem'}>
       {posts.map(
         ({
           _id,
@@ -46,11 +47,10 @@ const PostsWidget = ({ userId, isProfile = false }: Props) => {
             userPicturePath={userPicturePath}
             likes={likes}
             comments={comments}
-            isProfile={isProfile}
           />
         )
       )}
-    </>
+    </Box>
   );
 };
 

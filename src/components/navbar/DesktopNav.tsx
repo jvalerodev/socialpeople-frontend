@@ -44,9 +44,9 @@ const DesktopNav = ({ isMobileMenuToggled, setIsMobileMenuToggled }: Props) => {
         <FlexBetween gap="2rem">
           <IconButton onClick={handleMode}>
             {palette.mode === 'dark' ? (
-              <DarkMode sx={{ fontSize: '25px' }} />
+              <LightMode sx={{ fontSize: '25px' }} />
             ) : (
-              <LightMode sx={{ color: dark, fontSize: '25px' }} />
+              <DarkMode sx={{ color: dark, fontSize: '25px' }} />
             )}
           </IconButton>
 
