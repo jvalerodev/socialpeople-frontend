@@ -3,6 +3,7 @@ import Navbar from 'components/navbar';
 import UserWidget from 'components/widgets/User';
 import MyPostWidget from 'components/widgets/MyPost';
 import PostsWidget from 'components/widgets/Posts';
+import AdvertWidget from 'components/widgets/Advert';
 
 const Home = () => {
   const isMobileScreen = useMediaQuery('(max-width: 1000px)');
@@ -31,7 +32,13 @@ const Home = () => {
           <PostsWidget />
         </Box>
 
-        {!isMobileScreen && <Box flexBasis="26%"></Box>}
+        {!isMobileScreen && (
+          <Box flexBasis="26%">
+            <AdvertWidget />
+
+            <Box m="2rem 0" />
+          </Box>
+        )}
       </Box>
     </Box>
   );
