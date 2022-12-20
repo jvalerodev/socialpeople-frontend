@@ -56,10 +56,10 @@ const useAuth = () => {
     }
   };
 
-  const getUser = async () => {
-    if (!user || !token) return;
+  const getUser = async (userId: string) => {
+    if (!token) return;
 
-    const userRes = await UserService.getUser(user._id, token);
+    const userRes = await UserService.getUser(userId, token);
     return userRes;
   };
 

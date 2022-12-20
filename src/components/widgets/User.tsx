@@ -12,7 +12,12 @@ import { FlexBetween, WidgetWrapper } from 'components/styles';
 import { useAuth } from 'hooks';
 import { ThemeOptions, User } from 'types/typings';
 
-const UserWidget = () => {
+interface Props {
+  userId: string;
+  picturePath: string;
+}
+
+const UserWidget = ({ userId, picturePath }: Props) => {
   const [user, setUser] = useState<User>();
   const { getUser } = useAuth();
 
@@ -23,11 +28,11 @@ const UserWidget = () => {
   const medium = palette.neutral.medium;
   const main = palette.neutral.main;
 
-  useEffect(() => {
-    const getUserData = async () => {
-      setUser(await getUser());
-    };
+  const getUserData = async () => {
+    setUser(await getUser(userId));
+  };
 
+  useEffect(() => {
     getUserData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -41,8 +46,7 @@ const UserWidget = () => {
     occupation,
     viewedProfile,
     impressions,
-    friends,
-    picturePath
+    friends
   } = user;
 
   return (

@@ -42,7 +42,10 @@ const Profile = () => {
         justifyContent="center"
       >
         <Box flexBasis={!isMobileScreen ? '26%' : undefined}>
-          <UserWidget />
+          <UserWidget
+            userId={userProfile._id}
+            picturePath={userProfile.picturePath}
+          />
 
           <Box m="2rem 0" />
 
