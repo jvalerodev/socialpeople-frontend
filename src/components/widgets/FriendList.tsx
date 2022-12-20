@@ -5,12 +5,16 @@ import FriendWidget from './Friend';
 import { WidgetWrapper } from 'components/styles';
 import { ThemeOptions } from 'types/typings';
 
-const FriendListWidget = () => {
+interface Props {
+  userId: string;
+}
+
+const FriendListWidget = ({ userId }: Props) => {
   const { palette } = useTheme<ThemeOptions>();
   const { user, getFriends } = useAuth();
 
   useEffect(() => {
-    getFriends();
+    getFriends(userId);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!user) return null;

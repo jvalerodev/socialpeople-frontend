@@ -43,7 +43,7 @@ const Home = () => {
 
             <Box m="2rem 0" />
 
-            <FriendListWidget />
+            <FriendListWidget userId={user._id} />
           </Box>
         )}
       </Box>

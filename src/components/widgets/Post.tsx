@@ -21,6 +21,7 @@ interface Props {
   userPicturePath?: string;
   likes: Map<string, boolean>;
   comments?: string[];
+  isProfile: boolean;
 }
 
 const PostWidget = ({
@@ -32,7 +33,8 @@ const PostWidget = ({
   picturePath,
   userPicturePath,
   likes,
-  comments
+  comments,
+  isProfile = false
 }: Props) => {
   const { user, patchLike } = useAuth();
   const [isComments, setIsComments] = useState(false);
@@ -53,7 +55,7 @@ const PostWidget = ({
   const primary = palette.primary.main;
 
   return (
-    <WidgetWrapper palette={palette} m="2rem 0">
+    <WidgetWrapper palette={palette} m={isProfile ? undefined : '2rem 0'}>
       <Friend
         friendId={userId}
         name={name}

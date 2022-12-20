@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import { useAuth } from 'hooks';
 import Navbar from 'components/navbar';
 import FriendListWidget from 'components/widgets/FriendList';
-import MyPostWidget from 'components/widgets/MyPost';
 import PostsWidget from 'components/widgets/Posts';
 import UserWidget from 'components/widgets/User';
 import { User } from 'types/typings';
@@ -49,17 +48,10 @@ const Profile = () => {
 
           <Box m="2rem 0" />
 
-          <FriendListWidget />
+          <FriendListWidget userId={userProfile._id} />
         </Box>
 
-        <Box
-          flexBasis={!isMobileScreen ? '42%' : undefined}
-          mt={!isMobileScreen ? undefined : '2rem'}
-        >
-          <MyPostWidget picturePath={userProfile.picturePath} />
-
-          <Box m="2rem 0" />
-
+        <Box flexBasis={!isMobileScreen ? '42%' : undefined}>
           <PostsWidget userId={userProfile._id} isProfile />
         </Box>
       </Box>

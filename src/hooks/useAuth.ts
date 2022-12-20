@@ -122,10 +122,10 @@ const useAuth = () => {
     }
   };
 
-  const getFriends = async () => {
-    if (!user || !token) return;
+  const getFriends = async (userId: string) => {
+    if (!token) return;
 
-    const friends = await UserService.getFriends(user._id, token);
+    const friends = await UserService.getFriends(userId, token);
 
     if (friends) {
       dispatch(setFriends({ friends }));
