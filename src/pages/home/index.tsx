@@ -34,7 +34,7 @@ const Home = () => {
         >
           <MyPostWidget picturePath={user.picturePath} />
 
-          <PostsWidget />
+          <PostsWidget userId={user._id} />
         </Box>
 
         {!isMobileScreen && (

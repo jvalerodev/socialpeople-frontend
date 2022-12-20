@@ -3,17 +3,18 @@ import { useEffect } from 'react';
 import PostWidget from './Post';
 
 interface Props {
+  userId: string;
   isProfile?: boolean;
 }
 
-const PostsWidget = ({ isProfile = false }: Props) => {
+const PostsWidget = ({ userId, isProfile = false }: Props) => {
   const { user, posts, getFeedPosts, getUserPosts } = useAuth();
 
   useEffect(() => {
     if (!user) return;
 
     if (isProfile) {
-      getUserPosts(user._id);
+      getUserPosts(userId);
     } else {
       getFeedPosts();
     }

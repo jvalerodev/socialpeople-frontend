@@ -60,7 +60,7 @@ const Profile = () => {
 
           <Box m="2rem 0" />
 
-          <PostsWidget isProfile />
+          <PostsWidget userId={userProfile._id} isProfile />
         </Box>
       </Box>
     </Box>
