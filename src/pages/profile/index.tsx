@@ -56,7 +56,7 @@ const Profile = () => {
           flexBasis={!isMobileScreen ? '42%' : undefined}
           mt={!isMobileScreen ? undefined : '2rem'}
         >
-          <MyPostWidget />
+          <MyPostWidget picturePath={userProfile.picturePath} />
 
           <Box m="2rem 0" />
 

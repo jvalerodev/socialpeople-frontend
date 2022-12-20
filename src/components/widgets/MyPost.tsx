@@ -25,12 +25,16 @@ import UserImage from 'components/styles/UserImage';
 import { DropContainer } from 'components/forms/styles';
 import { ThemeOptions } from 'types/typings';
 
-const MyPostWidget = () => {
+interface Props {
+  picturePath: string;
+}
+
+const MyPostWidget = ({ picturePath }: Props) => {
   const [isImage, setIsImage] = useState(false);
   const [image, setImage] = useState<File | null>(null);
   const [post, setPost] = useState('');
 
-  const { user, handlePost } = useAuth();
+  const { handlePost } = useAuth();
 
   const isMobileScreen = useMediaQuery('(max-width: 1000px)');
 
@@ -55,12 +59,10 @@ const MyPostWidget = () => {
     onDropAccepted
   });
 
-  if (!user) return null;
-
   return (
     <WidgetWrapper palette={palette}>
       <FlexBetween gap="1.5rem">
-        <UserImage image={user.picturePath} />
+        <UserImage image={picturePath} />
 
         <InputBase
           placeholder="What's on your mind..."

@@ -32,7 +32,7 @@ const Home = () => {
           flexBasis={!isMobileScreen ? '42%' : undefined}
           mt={!isMobileScreen ? undefined : '2rem'}
         >
-          <MyPostWidget />
+          <MyPostWidget picturePath={user.picturePath} />
 
           <PostsWidget />
         </Box>
