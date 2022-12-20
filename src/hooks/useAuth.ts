@@ -1,13 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FormikHelpers } from 'formik';
-import { setLogout, setLogin, setPosts } from 'state';
+import { setLogout, setLogin, setPosts, setFriends, setPost } from 'state';
 import { UserService } from 'services';
 import { AppState, LoginSchema, RegisterSchema } from 'types/typings';
 
 const useAuth = () => {
   const user = useSelector((state: AppState) => state.user);
   const token = useSelector((state: AppState) => state.token);
+  const posts = useSelector((state: AppState) => state.posts);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -81,7 +82,60 @@ const useAuth = () => {
     }
   };
 
-  return { user, token, logout, register, login, getUser, handlePost };
+  const getFeedPosts = async () => {
+    if (!user || !token) return;
+
+    const posts = await UserService.getFeedPosts(token);
+
+    if (posts) {
+      dispatch(setPosts({ posts }));
+    }
+  };
+
+  const getUserPosts = async (userId: string) => {
+    if (!user || !token) return;
+
+    const posts = await UserService.getUserPosts(userId, token);
+
+    if (posts) {
+      dispatch(setPosts({ posts }));
+    }
+  };
+
+  const patchFriend = async (friendId: string) => {
+    if (!user || !token) return;
+
+    const friends = await UserService.patchFriend(user._id, friendId, token);
+
+    if (friends) {
+      dispatch(setFriends({ friends }));
+    }
+  };
+
+  const patchLike = async (postId: string) => {
+    if (!user || !token) return;
+
+    const updatedPost = await UserService.patchLike(postId, user._id, token);
+
+    if (updatedPost) {
+      dispatch(setPost({ post: updatedPost }));
+    }
+  };
+
+  return {
+    user,
+    token,
+    posts,
+    logout,
+    register,
+    login,
+    getUser,
+    handlePost,
+    getFeedPosts,
+    getUserPosts,
+    patchFriend,
+    patchLike
+  };
 };
 
 export default useAuth;

@@ -1,17 +1,4 @@
-type Post = {
-  _id: string;
-  userId: string;
-  firstname: string;
-  lastname: string;
-  location?: string;
-  description?: string;
-  picturePath?: string;
-  userPicturePath?: string;
-  likes?: Map<string, boolean>;
-  comments?: string[];
-  createdAt: Date;
-  updatedAt: Date;
-};
+import { Post } from './typings';
 
 export type PostsRes = {
   posts: Post[];
@@ -23,6 +10,6 @@ export type LikeBody = {
 };
 
 export type PostRes = {
-  post: Post | null;
+  post: Post;
   ok: boolean;
 };

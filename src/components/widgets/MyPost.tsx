@@ -29,9 +29,8 @@ const MyPost = () => {
   const [isImage, setIsImage] = useState(false);
   const [image, setImage] = useState<File | null>(null);
   const [post, setPost] = useState('');
-  const { user } = useAuth();
 
-  const { handlePost } = useAuth();
+  const { user, handlePost } = useAuth();
 
   const isMobileScreen = useMediaQuery('(max-width: 1000px)');
 
