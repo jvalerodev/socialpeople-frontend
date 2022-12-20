@@ -122,6 +122,16 @@ const useAuth = () => {
     }
   };
 
+  const getFriends = async () => {
+    if (!user || !token) return;
+
+    const friends = await UserService.getFriends(user._id, token);
+
+    if (friends) {
+      dispatch(setFriends({ friends }));
+    }
+  };
+
   return {
     user,
     token,
@@ -134,7 +144,8 @@ const useAuth = () => {
     getFeedPosts,
     getUserPosts,
     patchFriend,
-    patchLike
+    patchLike,
+    getFriends
   };
 };
 

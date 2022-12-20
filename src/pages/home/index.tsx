@@ -4,6 +4,7 @@ import UserWidget from 'components/widgets/User';
 import MyPostWidget from 'components/widgets/MyPost';
 import PostsWidget from 'components/widgets/Posts';
 import AdvertWidget from 'components/widgets/Advert';
+import FriendListWidget from 'components/widgets/FriendList';
 
 const Home = () => {
   const isMobileScreen = useMediaQuery('(max-width: 1000px)');
@@ -37,6 +38,8 @@ const Home = () => {
             <AdvertWidget />
 
             <Box m="2rem 0" />
+
+            <FriendListWidget />
           </Box>
         )}
       </Box>

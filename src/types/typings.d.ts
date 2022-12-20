@@ -14,9 +14,9 @@ export type User = {
 };
 
 export type Friends = {
-  _id?: string;
-  firtsname?: string;
-  lastname?: string;
+  _id: string;
+  firtsname: string;
+  lastname: string;
   occupation?: string;
   location?: string;
   picturePath?: string;

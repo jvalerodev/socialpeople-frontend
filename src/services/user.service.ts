@@ -144,5 +144,23 @@ export const UserService = {
         console.error(error.response?.data.msg);
       }
     }
+  },
+
+  getFriends: async (userId: string, token: string) => {
+    try {
+      const { data } = await axiosClient.get<GetFriendsRes>(
+        `/api/users/${userId}/friends`,
+        {
+          headers: { Authorization: `Bearer ${token}` }
+        }
+      );
+
+      const { friends } = data;
+      return friends;
+    } catch (error) {
+      if (isAxiosError(error)) {
+        console.error(error.response?.data.msg);
+      }
+    }
   }
 };
